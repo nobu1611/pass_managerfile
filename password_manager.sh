@@ -16,11 +16,8 @@ while true; do
     echo "パスワードを入力してください："
     read password
 
-    # 入力された情報を一時的にファイルに書き込む
-    echo "$service_name:$username:$password" > pass.txt
-
-    # ファイルを暗号化する
-     gpg --batch --yes --passphrase="$password" -c pass.txt
+    # 入力された情報をファイルに書き込む
+    echo "$service_name:$username:$password" >> pass.txt
 
     echo "パスワードの追加は成功しました。"
 
@@ -32,13 +29,19 @@ while true; do
     # ファイルから該当するサービス名の情報を取得
     password_info=$(grep "^$service_name:" pass.txt)
 
-    # サービス名が登録されていなかった場合
+    # サービス名が登録されていない場合
     if [ -z "$password_info" ]; then
       echo "そのサービスは登録されていません。"
 
     # サービス名が登録されていた場合
     else
-      echo "${password_info}"
+	service=$(echo "$password_info" | cut -d ":" -f 1)
+	username=$(echo "$password_info" | cut -d ":" -f 2)
+        password=$(echo "$password_info" | cut -d ":" -f 3)
+
+ 	echo "サービス名：$service"
+    	echo "ユーザー名：$username"
+    	echo "パスワード：$password"
     fi
 
   # Exit の場合

@@ -1,1 +1,3 @@
-本屋:nobu:777
+Z:nobu:1234
+qwe:のぶ:poiu
+hoge:hoge:hoge
