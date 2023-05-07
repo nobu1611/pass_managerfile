@@ -20,7 +20,7 @@ while true; do
     echo "$service_name:$username:$password" > pass.txt
 
     # ファイルを暗号化する
-    # gpg --batch --yes --passphrase="$password" -c pass.txt
+     gpg --batch --yes --passphrase="$password" -c pass.txt
 
     echo "パスワードの追加は成功しました。"
 
