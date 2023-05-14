@@ -35,13 +35,13 @@ while true; do
 
     # サービス名が登録されていた場合
     else
-	service=$(echo "$password_info" | cut -d ":" -f 1)
-	username=$(echo "$password_info" | cut -d ":" -f 2)
-        password=$(echo "$password_info" | cut -d ":" -f 3)
+      service=$(echo "$password_info" | cut -d ":" -f 1)
+      username=$(echo "$password_info" | cut -d ":" -f 2)
+      password=$(echo "$password_info" | cut -d ":" -f 3)
 
- 	echo "サービス名：$service"
-    	echo "ユーザー名：$username"
-    	echo "パスワード：$password"
+      echo "サービス名：$service"
+      echo "ユーザー名：$username"
+      echo "パスワード：$password"
     fi
 
   # Exit の場合
